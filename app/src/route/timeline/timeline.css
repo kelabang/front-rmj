@@ -1,0 +1,208 @@
+/*
+* @Author: d4r
+* @Date:   2018-02-22 00:57:51
+* @Last Modified by:   d4r
+* @Last Modified time: 2018-03-12 23:11:40
+*/
+/*
+* @Author: d4r
+* @Date:   2018-02-18 01:50:26
+* @Last Modified by:   d4r
+* @Last Modified time: 2018-02-18 03:43:25
+*/
+/*holy grail*/
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i");
+body {
+
+  font: 14px Helvetica;
+      font-family: "Source Sans Pro", Helvetica, sans-serif;
+  background: #ddd;
+  color:#14171a;
+}
+
+#main {
+  min-height: 800px;
+  max-width: 1190px;
+  margin: 10px auto;
+  padding: 0px;
+  display: flex;
+  flex-flow: row;
+}
+ 
+#main > article {
+  flex: 3 1 60%;
+  order: 2;
+}
+  
+#main > nav {
+  flex: 1 6 20%;
+  order: 1;
+  }
+  
+  #main > aside {
+   flex: 1 6 20%;
+   order: 3;
+  }
+ 
+header, footer {
+   display: block;
+   min-height: 48px;
+}
+
+header,
+#main>article,
+#main>aside,
+#main>nav,
+footer {
+  margin: .1em;
+  padding: .2em;
+  border-radius: 3px;
+  /*border: 1px solid #e6ecf1;*/
+  background: white;
+}
+ 
+/* Too narrow to support three columns */
+@media all and (max-width: 640px) {
+   #main, #page {
+     flex-direction: column;
+   }
+
+   #main > article, #main > nav, #main > aside {
+     order: 0;
+   }
+  
+   #main > nav, #main > aside, header, footer {
+     min-height: 50px;
+     max-height: 50px;
+   }
+}
+
+/*holy grail end here*/
+
+/* feed */
+.bgrumaji {
+	background: #46b7e9;
+}
+.white {
+	color: #fff;
+}
+.hide {
+	display: none!important;
+}
+body {
+  background: #fff;
+  color: #343434;
+  font-family: arial, sans-serif;
+}
+body {
+  background: #fff;
+  color: #343434;
+  font-family: arial, sans-serif;
+}
+
+.item {
+  display: flex;
+  /*max-width: 1000px;*/
+  margin: 0 auto;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-bottom: 0.25px solid #e6ecf0;
+}
+.item .image {
+  /*padding: 8px 1em;*/
+}
+.item .image, .reset-item .image {
+  position: relative;
+  text-align: center;
+  font-size: 0.8em;
+}
+.item .image > div::after,.reset-item .image > div::after {
+  content: '';
+  width: 100%;
+  height: 0;
+  border-bottom: 0px solid #e6ecf0;
+  position: absolute;
+  top: 2.75em;
+  left: 2.5em;
+  z-index: -1;
+}
+.reset-item .image img {
+  border-radius: 50%;
+  height: 5em;
+  border: 1.75px solid #e6ecf0;
+}
+.reset-item .image img {
+	max-height: 32px;
+}
+.item .image span {
+  display: block;
+  clear: both;
+  padding: 0em 0;
+  margin: 0.5em 0;
+}
+.item .details {
+  position: relative;
+  flex-grow: 1;
+}
+@media (max-width: 640px) {
+  .item .details {
+    position: relative;
+    flex-grow: 1;
+    max-width: 320px;
+  }
+} 
+.item .details > div {
+  border-radius: 0em;
+  padding: 0.5em;
+  margin: 0em 0;
+}
+.item .details > div h1 {
+  color: #5ed3bf;
+  font-size: 1.4em;
+  margin: 0;
+  padding: 0 0 0.5em 0;
+  letter-spacing: 0.1em;
+}
+.item .details > div p {
+	margin: 0;
+  margin-top: 5px;
+	padding: 0;
+	line-height: 150%;
+
+    word-wrap: break-word;	
+	white-space: pre-wrap;
+}
+.item .details::before {
+  content: '';
+  width: 0;
+  height: 100%;
+  border-left: 0px solid #e6ecf0;
+  position: absolute;
+  top: 0;
+  left: -4.35em;
+  z-index: -1;
+}
+
+span.date {
+	margin-left: 4px;
+	color: #657786;
+}
+
+.reset-item .image {
+  margin-top:2px;
+}
+
+.item > a.round-image > img {
+  width: auto!important;
+  height: auto!important;
+}
+
+.item > a.round-image {
+  margin-top:8px;
+  margin-right: 4px;
+  border: 1.75px solid #e6ecf0;
+}
+
+.item > a.round-image.image {
+  padding-right: 0px;
+}

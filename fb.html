@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="fb-root"></div>
+	<script>
+		window.fbAsyncInit = function() {
+		  FB.init({
+		    appId      : '182226439207649',
+		    cookie     : true,
+		    xfbml      : true,
+		    version    : 'v2.12'
+		  });
+		    
+		  FB.AppEvents.logPageView();   
+		  FB.getLoginStatus(function(response) {
+				console.log('response', response)
+			  if (response.status === 'connected') {
+			    console.log(response.authResponse.accessToken);
+			    const {accessToken,userID} = response.authResponse
+			    loginAPI(accessToken, userID)
+			  }
+			});
+		};
+		(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = 'https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v2.12';
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+
+	<div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" data-scope="email"></div>
+
+	<script type="text/javascript">
+		function loginAPI (ac, ui) {
+			fetch('http://localhost:8080/v2/auth/facebook', {
+			  method: 'POST',
+			  headers: {
+			    'Content-Type': 'application/json'
+			  },
+			  body: JSON.stringify({
+			    accessToken: ac,
+			    userID: ui
+			  })
+			}).then((a) => {
+				console.log(a)
+			})
+		}
+		// setTimeout(() => {
+			
+		// }, 10000)
+	</script>
+</body>
+</html>

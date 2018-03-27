@@ -1,0 +1,44 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "boundless": "^1.1.0",
+    "buildo-react-components": "^0.33.0",
+    "get-urls": "^7.2.0",
+    "history": "^4.7.2",
+    "immutability-helper": "^2.6.6",
+    "js-base64": "^2.4.3",
+    "jwt-decode": "^2.2.0",
+    "luxon": "^0.5.3",
+    "megadraft": "^0.4.35",
+    "moment": "^2.20.1",
+    "moment-timezone": "^0.5.14",
+    "react": "^16.2.0",
+    "react-autosize-textarea": "^3.0.2",
+    "react-dom": "^16.2.0",
+    "react-flexview": "^3.0.1",
+    "react-inline-edit": "^3.0.0",
+    "react-inline-editing": "^1.0.10",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^5.0.0-alpha.9",
+    "react-scripts": "^1.1.1",
+    "react-sidebar": "^2.3.2",
+    "reactjs-popup": "^1.0.3",
+    "redux": "^3.7.2",
+    "redux-act": "^1.7.2",
+    "redux-actions": "^2.2.1",
+    "redux-thunk": "^2.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.0",
+    "eslint-plugin-react": "^7.7.0"
+  }
+}

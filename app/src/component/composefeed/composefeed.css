@@ -1,0 +1,22 @@
+/*
+* @Author: d4r
+* @Date:   2018-03-12 22:45:52
+* @Last Modified by:   d4r
+* @Last Modified time: 2018-03-12 23:22:46
+*/
+.compose {
+	margin: 0 auto;
+	padding-top: 16px;
+	padding-bottom: 16px;
+
+}
+.compose.pure-button {
+	margin: 0 auto 0 auto;
+	background-color: #45b8ea;
+	max-width: 150px;
+	color: white;
+	text-align: center;
+	/*margin: .5em;*/
+	border-radius: 15px;
+	margin-left: 12px;
+}

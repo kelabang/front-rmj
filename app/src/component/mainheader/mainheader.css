@@ -1,0 +1,62 @@
+/*
+* @Author: d4r
+* @Date:   2018-02-27 00:36:35
+* @Last Modified by:   d4r
+* @Last Modified time: 2018-03-02 16:27:21
+*/
+.pure-menu-heading {
+	margin-top:2px;
+}
+.round-image{
+	border-radius:100%; 
+	height: 100px; 
+	margin: 0 auto;
+	width: 100px; 
+	overflow:hidden;
+  /*transition: top .2s ease-in-out,width .5s,height .5s;*/
+}
+.head-list{
+	padding-top: 4px;
+	padding-bottom: 4px;
+	width: 100%;
+}
+.pull-right{
+	float:right;
+	padding-right: 16.8px;
+}
+a.round-image {
+	display: inline-block;
+	width: 36px;
+	height: 36px;
+	padding-right: 17px;
+}
+a.round-image > img{
+	background: white;
+	width: 36px;
+	height: 36px;
+}
+.bold {
+	font-weight: bold;
+}
+.block {
+	display: block!important;
+}
+.black {
+	color: #343434!important;
+}
+.center {
+	text-align: center;
+}
+.bgblue{
+	background: blue;
+}
+.pure-menu-item.head-list.bold {
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+
+.avatar-round{
+  	background:white;
+	width: 36px;
+	height: 36px
+}

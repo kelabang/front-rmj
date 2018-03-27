@@ -1,0 +1,108 @@
+/*@import url("https://fonts.googleapis.com/css?family=Open+Sans:700|Playfair+Display");*/
+.bgred {
+	background: red;
+}
+.paper {
+  background: blue;
+	text-rendering: normal;
+	/*margin: 20px auto 0 auto;*/
+	letter-spacing: initial!important;
+	padding-right: 4px;
+	padding-left: 4px;
+	border-bottom-left-radius:3px;
+	border-bottom-right-radius:3px;
+	border-top-left-radius:8px;
+	border-top-right-radius:8px;
+	background: white;
+	text-align: center;
+  margin-bottom: 8px;
+}
+
+.paper.empty{
+  border: 1px dashed #dedede;
+
+}
+
+.paper img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.paper .poster {
+	border-bottom-left-radius:3px;
+	border-bottom-right-radius:3px;
+	border-top-left-radius:8px;
+	border-top-right-radius:8px;
+}
+
+.paper h1 {
+  /*font-size: 2.6rem;*/
+  color: #303336;
+  letter-spacing: 1px;
+  /*font-family: "Playfair Display", serif;*/
+}
+
+.paper h2 {
+  /*font-size: .4rem;*/
+  color: #A0A6AB;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  /*font-family: "Open Sans", sans-serif;*/
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.paper hr {
+  width: 20%;
+/*  margin-top: 3vh;
+  margin-bottom: 3vh;*/
+  border: 0;
+  border-bottom: 1px solid #E6E9EC;
+}
+
+.paper p {
+  /*margin: 2vh 8vw;*/
+  text-align: center;
+  /*padding-bottom: 1vh;*/
+  color: #A0A6AB;
+  /*font-family: "Playfair Display", serif;*/
+  font-weight: 100;
+  /*font-size: 12px;*/
+  /*font-size: .9rem;*/
+  /*line-height: 1.25rem;*/
+}
+
+.paper .btn,
+.paper a.btn {
+  display: inline-block;
+  /*text-transform: uppercase;*/
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 20px;
+  border-radius: 16px;
+  /*font-size: inherit;*/
+  padding: 1vh 2vh;
+  /*letter-spacing: .02rem;*/
+  background: #45b8ea;
+  color: white;
+  /*font-family: "Open Sans", sans-serif;*/
+  /*font-size: .8rem;*/
+  /*box-shadow: 0 0px 0px rgba(48, 51, 54, 0.1), 0 0px 0px rgba(0, 0, 0, 0);*/
+}
+
+.paper .btn,
+a.btn:hover {
+  /*background: #7C66FF;*/
+  /*box-shadow: 0 7px 14px rgba(48, 51, 54, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);*/
+  /*transform: translateY(-1px);*/
+}
+
+.paper .btn,
+a.btn:active {
+  /*box-shadow: 0 4px 6px rgba(48, 51, 54, 0.1), 0 1px 3px rgba(0, 0, 0, 0.12);*/
+  /*transform: translateY(1px);*/
+}
+
+.paper .space {
+  height: 4vh;
+}

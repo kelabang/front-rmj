@@ -1,0 +1,25 @@
+/*
+* @Author: d4r
+* @Date:   2018-03-05 01:03:53
+* @Last Modified by:   d4r
+* @Last Modified time: 2018-03-18 02:47:51
+*/
+.megacontainer {
+	max-width: 80%;
+	margin:50px auto;
+}
+
+
+input.subtitle,
+input.title  {
+	text-align: center;
+	min-width: 300px;
+	color: black!important;
+	border: none;
+}
+
+input.subtitle:focus,
+input.title:focus {
+	outline: none;
+	box-shadow: 0 0;
+}
