@@ -5,6 +5,7 @@
   "dependencies": {
     "boundless": "^1.1.0",
     "buildo-react-components": "^0.33.0",
+    "fetch-intercept": "^2.2.3",
     "get-urls": "^7.2.0",
     "history": "^4.7.2",
     "immutability-helper": "^2.6.6",
@@ -17,6 +18,7 @@
     "react": "^16.2.0",
     "react-autosize-textarea": "^3.0.2",
     "react-dom": "^16.2.0",
+    "react-facebook-login": "^4.0.1",
     "react-flexview": "^3.0.1",
     "react-inline-edit": "^3.0.0",
     "react-inline-editing": "^1.0.10",

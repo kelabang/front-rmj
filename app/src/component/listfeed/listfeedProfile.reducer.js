@@ -2,7 +2,7 @@
 * @Author: d4r
 * @Date:   2018-02-23 02:50:50
 * @Last Modified by:   Imam
-* @Last Modified time: 2018-04-23 01:48:05
+* @Last Modified time: 2018-04-23 01:47:29
 */
 
 import update from 'immutability-helper'
@@ -18,9 +18,9 @@ const defaultState = {
 }
 
 const [request, failure, success] = [
-	'LOAD_FEED_REQUEST',
-	'LOAD_FEED_FAILURE',
-	'LOAD_FEED_SUCCESS',
+	'LOAD_FEEDPROFILE_REQUEST',
+	'LOAD_FEEDPROFILE_FAILURE',
+	'LOAD_FEEDPROFILE_SUCCESS',
 ].map(createAction)
 
 export function getFeedAsync () {
@@ -28,8 +28,11 @@ export function getFeedAsync () {
 		dispatch(request({
 			loading: true
 		}))
+
+		const username = 'ma4m'
+
 		return api
-			.get('/feed')
+			.get('/ma4m/feed')
 			.then(payload => {
 				const {data} = payload
 				dispatch(success({
@@ -44,15 +47,16 @@ export function getFeedMoreAsync () {
 	return (dispatch, getState) => {
 
 		// get last feed id
-		const {listfeed} = getState()
-		const {feeds} = listfeed
+		const {listfeedProfile} = getState()
+		const {feeds} = listfeedProfile
 		const last = feeds[feeds.length-1]
+		const username = 'ma4m'
 
 		dispatch(request({
 			loading: true
 		}))
 		return api
-			.get('/feed?id='+last.id+'&mode=prev')
+			.get('/'+username+'/feed?id='+last.id+'&mode=prev')
 			.then(payload => {
 				const {data} = payload
 				dispatch(success({

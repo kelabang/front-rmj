@@ -1,8 +1,8 @@
 /*
 * @Author: d4r
 * @Date:   2018-03-02 10:53:32
-* @Last Modified by:   d4r
-* @Last Modified time: 2018-03-04 12:41:00
+* @Last Modified by:   Imam
+* @Last Modified time: 2018-04-22 21:09:07
 */
 import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 import MainHeader from './../../component/mainheader/mainheader'
 import BoxProfile from './../../component/boxprofile/boxprofile'
 import ComposeFeed from './../../component/composefeed/composefeed'
-import ListFeed from './../../component/listfeed/listfeed'
+import ListFeed from './../../component/listfeed/listfeedProfile'
 
 import './profile.css'
 

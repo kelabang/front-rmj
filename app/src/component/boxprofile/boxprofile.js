@@ -1,18 +1,25 @@
 /*
 * @Author: d4r
 * @Date:   2018-03-02 11:54:32
-* @Last Modified by:   d4r
-* @Last Modified time: 2018-03-02 16:00:29
+* @Last Modified by:   Imam
+* @Last Modified time: 2018-05-03 20:22:32
 */
 
 import React, {Component} from 'react'
 
-// import {bindActionCreators} from 'redux'
-// import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
 
+import {getProfileAsync} from './boxprofile.reducer'
 import './boxprofile.css'
 
 class BoxProfile extends Component {
+	constructor (props) {
+		super(props)
+	}
+	componentDidMount() {
+		this.props.getProfileAsync()
+	}
 	render () {
 		return (
 			<div className="container">
@@ -57,4 +64,16 @@ class BoxProfile extends Component {
 	}
 }
 
-export default BoxProfile
+const mapStateToProps = (state) => {
+	const {profile, is_fetching} = state
+	return {
+		profile: profile,
+		is_fetching: is_fetching
+	}
+}
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+	getProfileAsync
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(BoxProfile)

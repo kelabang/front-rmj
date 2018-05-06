@@ -1,8 +1,8 @@
 /*
 * @Author: d4r
 * @Date:   2018-02-22 00:57:42
-* @Last Modified by:   d4r
-* @Last Modified time: 2018-03-12 22:57:22
+* @Last Modified by:   Imam
+* @Last Modified time: 2018-04-22 20:58:24
 */
 import React, {Component, Fragment} from 'react'
 
@@ -13,15 +13,12 @@ import React, {Component, Fragment} from 'react'
 // import login from './login.reducer'
 
 import ComposeFeed from './../../component/composefeed/composefeed'
-import ListFeed from './../../component/listfeed/listfeed'
+import ListFeed from './../../component/listfeed/listfeedTimeline'
 import MainHeader from './../../component/mainheader/mainheader'
 
 import './timeline.css'
 
 class Timeline extends Component {
-	// constructor (props) {
-	// 	super(props)
-	// }
 	render () {
 		return (
 			<Fragment>

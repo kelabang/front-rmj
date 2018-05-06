@@ -1,8 +1,8 @@
 /*
 * @Author: d4r
 * @Date:   2018-02-18 14:41:00
-* @Last Modified by:   d4r
-* @Last Modified time: 2018-03-04 11:31:45
+* @Last Modified by:   Imam
+* @Last Modified time: 2018-05-05 00:14:37
 */
 
 * {
@@ -251,6 +251,9 @@ label {
 	max-width: 150px;
 	margin-right: 4px;
 	margin-bottom: 0;
+}
+.rmj-fb-button {
+    margin-left: 5px;
 }
 .rmj-sub {
 	font-size: 24px;

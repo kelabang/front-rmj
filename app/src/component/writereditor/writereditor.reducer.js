@@ -1,8 +1,8 @@
 /*
 * @Author: d4r
 * @Date:   2018-03-22 07:03:44
-* @Last Modified by:   d4r
-* @Last Modified time: 2018-03-25 00:59:34
+* @Last Modified by:   Imam
+* @Last Modified time: 2018-03-27 22:15:44
 */
 
 import update from 'immutability-helper'
@@ -48,7 +48,17 @@ export function restoreContent (id) {
 			loading: true
 		}))
 		
-		return Promise.resolve(JSON.parse(formatted))
+		let c = ''
+		
+		try {
+			c = JSON.parse(formatted)
+		}
+		catch (e) {
+			console.error(e)
+			c = ''
+		}
+
+		return Promise.resolve(c)
 	}
 }
 

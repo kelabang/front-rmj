@@ -1,15 +1,23 @@
 /*
 * @Author: d4r
 * @Date:   2018-02-20 22:37:11
-* @Last Modified by:   d4r
-* @Last Modified time: 2018-03-22 21:52:10
+* @Last Modified by:   Imam
+* @Last Modified time: 2018-04-17 08:05:19
 */
 
+import unregister from './ApiFetch'
 import Storage from './Storage'
 import isdo from './isdo'
 
 const {isLogin} = isdo
 const URL = 'http://localhost:8080/v2'
+
+function handleErrors (response) {
+	if(!response.ok) {
+		console.error(response.statusText)
+	}
+	return response
+}
 
 class Api {
 	constructor (url = URL) {
@@ -34,6 +42,7 @@ class Api {
 	get (endpoint, queryparam = {}) {
 		let url = this._url + endpoint + this._serialize(queryparam)
 		return fetch(url)
+			.then(handleErrors)
 			.then(response => response.json())
 	}
 	post (endpoint, bodyparam, queryparam = '') {
@@ -50,6 +59,7 @@ class Api {
 		}
 		if(ac) options.headers['Authorization'] = ac
 		return fetch(url, options)
+			.then(handleErrors)
 			.then(response => response.json())
 	}
 	put (endpoint, bodyparam, queryparam) {
@@ -63,6 +73,7 @@ class Api {
 			}
 		}
 		return fetch(url, options)
+			.then(handleErrors)
 			.then(response => response.json())
 	}
 	delete (endpoint, bodyparam, queryparam) {
@@ -76,6 +87,7 @@ class Api {
 			}
 		}
 		return fetch(url, options)
+			.then(handleErrors)
 			.then(response => response.json())
 	}
 }

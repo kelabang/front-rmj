@@ -2,7 +2,7 @@
 * @Author: d4r
 * @Date:   2018-02-20 01:18:39
 * @Last Modified by:   Imam
-* @Last Modified time: 2018-05-06 00:08:12
+* @Last Modified time: 2018-05-06 15:25:21
 */
 import React, {Component} from 'react'
 import {bindActionCreators} from 'redux'
@@ -15,7 +15,7 @@ import {
 } from './login.reducer'
 import './login.css'
 
-class Login extends Component {
+class Register extends Component {
 	constructor (props) {
 		super(props)
 		this.state = {
@@ -25,14 +25,21 @@ class Login extends Component {
 		this.loginSubmit = (e) => {
 			e.preventDefault()
 			const {email, password} = this.refs
-			console.log(email.value, password.value)
 			this.props.loginAsync(email.value, password.value)
 			// props.loginAsync(email, password)
 		}
 		this.registerSubmit = (e) => {
 			e.preventDefault()
-			const {regusername, regemail, regpassword} = this.refs
-			this.props.registerAsync(regusername.value, regemail.value, regpassword.value)
+			const {regusername, regemail, regpassword, regreffbid} = this.refs
+			
+			let type
+			if(regreffbid.value) {
+				type = 1
+			}
+			this.props.registerAsync(regusername.value, regemail.value, regpassword.value, {
+				ref_id: regreffbid.value,
+				ref_type: type
+			})
 		}
 		this.loginFacebook = (e) => {
 			console.log('login facebook')
@@ -58,17 +65,28 @@ class Login extends Component {
 			                cssClass="pure-button login bgwhite rmj rmj-fb-button"
 			                onClick={this.loginFacebook}
 			                callback={this.responseFacebook} />)
-				break;
+				break
 				case 1:
 					output = (
 						<button className={"pure-button login bgwhite rmj rmj-fb-button"} disabled> logging in facebook... </button>
 					)
-				break;
+				break
 			}
 			return output
 		}
 	}
-	
+	componentDidMount () {
+		if(this.props.form_email) {
+			this.refs.regemail.value = this.props.form_email 
+			this.refs.regreffbid.value = this.props.form_facebook_id 
+		}
+	}
+	componentDidUpdate (prevProps, prevState) {
+		if(prevProps.form_email !== this.props.form_email) {
+			this.refs.regemail.value = this.props.form_email 
+			this.refs.regreffbid.value = this.props.form_facebook_id 
+		}
+	}
 	render () {
 		return (<div>
 		        <div className="header">
@@ -85,14 +103,15 @@ class Login extends Component {
 		        <div className="splash-container">
 		          <div className="splash">
 		            <div className="ribbon l-box-lrg pure-g">
-		              <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-2 ">
+		              <div className="">
 		                <div className="abs">
 		                  <p className="splash-subhead rmj-sub">
-		                    Read and Share it. Join today.
+		                  	Roses is red, Violets are blue.
 		                  </p>
 		                </div>
 		                <form onSubmit={this.registerSubmit} className="pure-form pure-form-stacked rmj-register">
 		                  <fieldset>
+		                    <input ref="regreffbid" type="text" placeholder="fbid" style={{display:'none'}} />
 		                    <input ref="regusername" type="text" placeholder="Username" />
 		                    <input ref="regemail" type="email" placeholder="Email" />
 		                    <span className="pure-form-message hide">This is a required field.</span>
@@ -117,7 +136,9 @@ class Login extends Component {
 }
 
 const mapStateToProps = state => {
-	return {}
+	console.log('mapStateToProps : ', state)
+	const {login} = state
+	return {...login}
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
@@ -126,4 +147,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 	loginFacebookAsync
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Register)
