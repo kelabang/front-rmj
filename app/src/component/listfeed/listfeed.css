@@ -1,10 +1,20 @@
 /*
 * @Author: d4r
 * @Date:   2018-03-04 15:00:46
-* @Last Modified by:   d4r
-* @Last Modified time: 2018-03-04 16:45:17
+* @Last Modified by:   Imam
+* @Last Modified time: 2018-05-07 23:03:28
 */
 
 .feeds > .item > a.round-image {
 	min-width: 35px!important;
+}
+
+.action > a {
+	text-decoration: none;
+	color: #b1b1b1;	
+}
+
+.item.child {
+	background: aliceblue;
+	padding-left: 10px;
 }
