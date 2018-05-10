@@ -10,8 +10,8 @@ import Storage from './Storage'
 import isdo from './isdo'
 
 const {isLogin} = isdo
-const URL = 'http://localhost:8080/v2'
-
+//const URL = 'http://localhost:8080/v2'
+const URL = 'https://api.rumaji.com/v2'
 function handleErrors (response) {
 	if(!response.ok) {
 		console.error(response.statusText)
