@@ -2,7 +2,7 @@
 * @Author: d4r
 * @Date:   2018-02-23 02:50:50
 * @Last Modified by:   Imam
-* @Last Modified time: 2018-04-17 08:45:08
+* @Last Modified time: 2018-05-11 02:40:36
 */
 
 import update from 'immutability-helper'
@@ -25,6 +25,20 @@ const [request, failure, success] = [
 ].map(createAction)
 
 const requestManager = create()
+
+export function postFeedCommentAsync (input, feedid) {
+	return dispatch => {
+		dispatch(request())
+		return requestManager(api.post('/feed/'+feedid+'/comment', {
+			type: 1,
+			content: input,
+			feed_id: feedid
+		}))
+		.then(payload => dispatch(getFeedAsync()))
+		.then(payload => dispatch(success()))
+	}
+}
+
 export function postFeedAsync (input) {
 	return dispatch => {
 		dispatch(request())

@@ -2,7 +2,7 @@
 * @Author: d4r
 * @Date:   2018-02-23 02:50:50
 * @Last Modified by:   Imam
-* @Last Modified time: 2018-04-23 01:48:05
+* @Last Modified time: 2018-05-09 01:33:08
 */
 
 import update from 'immutability-helper'
@@ -44,8 +44,7 @@ export function getFeedMoreAsync () {
 	return (dispatch, getState) => {
 
 		// get last feed id
-		const {listfeed} = getState()
-		const {feeds} = listfeed
+		const {listfeed: {feeds}} = getState()
 		const last = feeds[feeds.length-1]
 
 		dispatch(request({
@@ -55,8 +54,10 @@ export function getFeedMoreAsync () {
 			.get('/feed?id='+last.id+'&mode=prev')
 			.then(payload => {
 				const {data} = payload
+				const {listfeed:{feeds}} = getState()
+				const keys = feeds.map(i => i['id'])
 				dispatch(success({
-					feeds:data,
+					feeds: data.filter(item => keys.indexOf(item.id) < 0),
 					custom: 'add',
 					loading: false
 				}))

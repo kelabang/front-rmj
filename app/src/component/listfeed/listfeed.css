@@ -2,7 +2,7 @@
 * @Author: d4r
 * @Date:   2018-03-04 15:00:46
 * @Last Modified by:   Imam
-* @Last Modified time: 2018-05-07 23:03:28
+* @Last Modified time: 2018-05-10 11:55:11
 */
 
 .feeds > .item > a.round-image {
@@ -17,4 +17,8 @@
 .item.child {
 	background: aliceblue;
 	padding-left: 10px;
+}
+
+p.action a + a:before{
+    content: " ∙ ";
 }

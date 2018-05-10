@@ -2,21 +2,22 @@
 * @Author: Imam
 * @Date:   2018-04-22 17:24:11
 * @Last Modified by:   Imam
-* @Last Modified time: 2018-04-22 17:51:01
+* @Last Modified time: 2018-05-09 01:50:16
 */
 import React, {Component} from 'react'
+const _throttle = require('lodash.throttle')
 const withInfiniteScroll = (Component) =>
 	class WithInfiniteScroll extends Component {
 		componentDidMount() {
-		  window.addEventListener('scroll', this.onScroll, false);
+			this.tr = _throttle(this.onScroll, 1500, { 'trailing': true })
+			window.addEventListener('scroll', this.tr, false);
 		}
-
 		componentWillUnmount() {
-		  window.removeEventListener('scroll', this.onScroll, false);
+			this.tr.cancel()
+			window.removeEventListener('scroll', this.tr, false);
 		}
 
 		onScroll = () => {
-			console.log(this.props)
 		  if (
 		    (window.innerHeight + window.scrollY) 
 		    	>= (document.body.offsetHeight - 500) 

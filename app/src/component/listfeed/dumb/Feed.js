@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2018-04-22 20:39:03
 * @Last Modified by:   Imam
-* @Last Modified time: 2018-05-08 00:00:39
+* @Last Modified time: 2018-05-10 11:12:40
 */
 
 import React, {Component, Fragment} from 'react' 
@@ -22,31 +22,35 @@ class Feed extends Component {
 			toggle_comment: !this.state.toggle_comment
 		})
 	}
-	renderComments() {
-		const {user, content, id, created} = this.props
-		const {username} = user
-		const humancreated = moment.utc(created).local().fromNow()
-		return (
-			<div className="item child">
-				<a className="round-image image">
-					<img src="images/defpp.svg" alt="" />
-				</a>
-				<div className="details">
-					<div>
-						<span>
-							<b>{username}</b>
-						</span>
-						<span className="date">
-							{/*Dec 9, 2018*/}
-							{humancreated}
-						</span>
-						<p>
-							{content}
-						</p>
-					</div>
-				</div>
-			</div>
-		)
+	renderComments () {
+
+		const {comments} = this.props
+		
+		let toRender = []
+
+		toRender = comments.map(comment => {
+			const {
+				user,
+				content,
+				created,
+				id
+			} = comment
+
+			return (
+				<Feed 
+					key={id}
+					user={user}
+					content={content}
+					id={id}
+					created={created}
+					parentid={this.props.id}
+				/>
+			)
+			
+		})
+
+		return toRender.reverse()
+		
 	}
 	renderCommentBox () {
 		return (
@@ -64,12 +68,13 @@ class Feed extends Component {
 		)
 	}
 	render () {
-		const {user, content, id, created} = this.props
+		const {user, content, id, created, parentid} = this.props
 		const {username} = user
 		const humancreated = moment.utc(created).local().fromNow()
+		const cn = (this.props.parentid)? "item child":"item"
 		return (
 			<Fragment>
-				<div key={id} className="item">
+				<div key={id} className={cn}>
 					<a className="round-image image">
 						<img src="images/defpp.svg" alt="" />
 					</a>
@@ -85,17 +90,16 @@ class Feed extends Component {
 							<p>
 								{content}
 							</p>
-							<p className="action">
-								<a href="#">like</a>∙<a href="#" onClick={this.switchToggleComment}>comment</a>
-							</p>
+							{this.props.children}
 						</div>
 					</div>
 				</div>
 				{
-					this.state.toggle_comment && this.renderCommentBox()
+					// this.state.toggle_comment && this.renderCommentBox()
 				}
+				
 				{
-					// this.renderComments()
+					this.props.comments && this.renderComments()
 				}
 			</Fragment>
 		)
