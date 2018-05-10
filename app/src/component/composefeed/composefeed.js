@@ -2,19 +2,13 @@
 * @Author: d4r
 * @Date:   2018-02-23 03:23:11
 * @Last Modified by:   Imam
-* @Last Modified time: 2018-04-17 08:40:51
+* @Last Modified time: 2018-05-11 02:38:40
 */
 
 import React, {Component} from 'react'
-import {bindActionCreators} from 'redux'
-import {connect} from 'react-redux'
 import TextareaAutosize from 'react-autosize-textarea'
 
 import {rangeRandom} from './../../util/random'
-
-import {
-	postFeedAsync
-} from './composefeed.reducer'
 
 import './composefeed.css'
 
@@ -29,9 +23,8 @@ class ComposeFeed extends Component {
 			e.preventDefault()
 			const {content} = this.refs
 			const {currentValue} = content
-			console.log(this.refs)
-			console.log(currentValue)
-			this.props.postFeedAsync(currentValue)
+			const {id} = this.props
+			this.props.postFeedAsync(currentValue, id)
 			this.refs.content.value = ''
 			this.setState({
 				build_key: rangeRandom(100, 999)
@@ -76,15 +69,8 @@ class ComposeFeed extends Component {
 	}
 }
 
-const mapStateToProps = ({composefeed}) => {
-	const {is_fetching} = composefeed
-	return {
-		is_fetching: is_fetching
-	}
+ComposeFeed.defaultProps = {
+	postFeedAsync: function () {}
 }
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({
-	postFeedAsync
-}, dispatch)
-
-export default connect(mapStateToProps, mapDispatchToProps)(ComposeFeed)
+export default ComposeFeed

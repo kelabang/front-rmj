@@ -2,7 +2,7 @@
 * @Author: d4r
 * @Date:   2018-02-22 00:57:42
 * @Last Modified by:   Imam
-* @Last Modified time: 2018-04-22 20:58:24
+* @Last Modified time: 2018-05-10 00:07:52
 */
 import React, {Component, Fragment} from 'react'
 
@@ -12,7 +12,7 @@ import React, {Component, Fragment} from 'react'
 // } from './login.reducer'
 // import login from './login.reducer'
 
-import ComposeFeed from './../../component/composefeed/composefeed'
+import ComposeFeed from './../../component/composefeed/composefeedTimeline'
 import ListFeed from './../../component/listfeed/listfeedTimeline'
 import MainHeader from './../../component/mainheader/mainheader'
 

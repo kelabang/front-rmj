@@ -2,7 +2,7 @@
 * @Author: d4r
 * @Date:   2018-02-20 01:18:39
 * @Last Modified by:   Imam
-* @Last Modified time: 2018-05-06 15:25:21
+* @Last Modified time: 2018-05-08 20:40:06
 */
 import React, {Component} from 'react'
 import {bindActionCreators} from 'redux'
@@ -59,7 +59,8 @@ class Register extends Component {
 			switch (this.state.status_facebook) {
 				case 0:
 					output = (<FacebookLogin
-			                appId="182226439207649"
+			                /*appId="182226439207649"*/
+			                appId="399892760060943"
 			                autoLoad={false}
 			                fields="name,email,picture"
 			                cssClass="pure-button login bgwhite rmj rmj-fb-button"
