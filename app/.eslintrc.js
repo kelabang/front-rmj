@@ -16,7 +16,9 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "process",
+        "API_URL"
     ],
     "rules": {
         "indent": [

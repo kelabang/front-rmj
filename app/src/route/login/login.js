@@ -2,18 +2,25 @@
 * @Author: d4r
 * @Date:   2018-02-20 01:18:39
 * @Last Modified by:   Imam
-* @Last Modified time: 2018-05-08 20:39:49
+* @Last Modified time: 2018-05-11 13:14:31
 */
 import React, {Component} from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import FacebookLogin from 'react-facebook-login'
+
+import config from './../../config'
+
 import {
 	loginAsync,
 	registerAsync,
 	loginFacebookAsync
 } from './login.reducer'
 import './login.css'
+
+const {
+	FACEBOOK_ID
+} = config
 
 class Login extends Component {
 	constructor (props) {
@@ -53,7 +60,7 @@ class Login extends Component {
 				case 0:
 					output = (<FacebookLogin
 			                /*appId="182226439207649"*/
-			                appId="399892760060943"
+			                appId={FACEBOOK_ID}
 			                autoLoad={false}
 			                fields="name,email,picture"
 			                cssClass="pure-button login bgwhite rmj rmj-fb-button"
