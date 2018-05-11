@@ -2,16 +2,20 @@
 * @Author: d4r
 * @Date:   2018-02-20 22:37:11
 * @Last Modified by:   Imam
-* @Last Modified time: 2018-04-17 08:05:19
+* @Last Modified time: 2018-05-11 06:22:51
 */
 
 import unregister from './ApiFetch'
 import Storage from './Storage'
 import isdo from './isdo'
 
+import config from './../config'
+const {API_URL} = config
+
 const {isLogin} = isdo
-//const URL = 'http://localhost:8080/v2'
-const URL = 'https://api.rumaji.com/v2'
+const URL = API_URL
+// const URL = 'http://localhost:8080/v2'
+// const URL = 'https://api.rumaji.com/v2'
 function handleErrors (response) {
 	if(!response.ok) {
 		console.error(response.statusText)

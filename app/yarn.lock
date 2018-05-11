@@ -2791,6 +2791,10 @@ fbjs@^0.8.15, fbjs@^0.8.16, fbjs@^0.8.4, fbjs@^0.8.9:
     setimmediate "^1.0.5"
     ua-parser-js "^0.7.9"
 
+fetch-intercept@^2.2.3:
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/fetch-intercept/-/fetch-intercept-2.2.3.tgz#8cfc03237347be1fecd571006cd8490983a7fed5"
+
 figures@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/figures/-/figures-2.0.0.tgz#3ab1a2d2a62c8bfb431a0c94cb797a2fce27c962"
@@ -4406,6 +4410,10 @@ lodash.templatesettings@^4.0.0:
   dependencies:
     lodash._reinterpolate "~3.0.0"
 
+lodash.throttle@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
+
 lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
@@ -5765,6 +5773,10 @@ react-error-overlay@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-4.0.0.tgz#d198408a85b4070937a98667f500c832f86bd5d4"
 
+react-facebook-login@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/react-facebook-login/-/react-facebook-login-4.0.1.tgz#7d43672ee86e3f2cd9e8758de1e61eb66a212611"
+
 react-flexview@3.0.1, react-flexview@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/react-flexview/-/react-flexview-3.0.1.tgz#63c2f9c17a016dbe84c83bc00f27b94d3b859068"
@@ -5923,6 +5935,10 @@ react-skinnable@1.1.1:
     babel-cli "^6.24.1"
     babel-preset-buildo "^0.1.1"
     tcomb "^3.0.0"
+
+react-toggled@^1.2.6:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/react-toggled/-/react-toggled-1.2.6.tgz#c257306e75e0a2b45308d8a6a602fdad05a0dc38"
 
 react-transition-group@1.2.0:
   version "1.2.0"

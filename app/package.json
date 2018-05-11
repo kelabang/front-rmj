@@ -36,11 +36,15 @@
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "REACT_APP_MODE=dev react-scripts start",
+    "build": "REACT_APP_MODE=pro react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
+<<<<<<< HEAD
     "serve": "serve -s build"
+=======
+	"serve": "REACT_APP_MODE=pro serve -s build"
+>>>>>>> 34fad53654798fd55758f7f7f7f378425a1e8720
   },
   "devDependencies": {
     "eslint": "^4.19.0",
