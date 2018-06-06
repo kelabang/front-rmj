@@ -2,7 +2,7 @@
 * @Author: d4r
 * @Date:   2018-02-20 22:37:11
 * @Last Modified by:   Imam
-* @Last Modified time: 2018-05-11 06:22:51
+* @Last Modified time: 2018-06-06 02:35:48
 */
 
 import unregister from './ApiFetch'
@@ -10,6 +10,7 @@ import Storage from './Storage'
 import isdo from './isdo'
 
 import config from './../config'
+import axios from 'axios'
 const {API_URL} = config
 
 const {isLogin} = isdo
@@ -44,10 +45,35 @@ class Api {
 		}
 	}
 	get (endpoint, queryparam = {}) {
-		let url = this._url + endpoint + this._serialize(queryparam)
-		return fetch(url)
+		let ac = this._seekCredential()
+		const options = {
+			method: 'GET',
+			mode: 'cors',
+			headers: {
+				'content-type': 'application/json'
+			}
+		}
+		if(ac) ac = 'Bearer '+ac 
+		if(ac) options.headers['Authorization'] = ac
+		let url = this._url + endpoint
+		if(queryparam.length > 0) url = url + '?' + this._serialize(queryparam)
+		return fetch(url, options)
 			.then(handleErrors)
 			.then(response => response.json())
+	}
+	getRaw () {
+		return axios.get(this._url)
+			.then(handleErrors)
+	}
+	postFile (endpoint, bodyparam) {
+		let url = endpoint
+		return axios.post(url, 
+			bodyparam,
+			{
+				headers: {
+					'Content-Type': 'multipart/form-data'
+				}
+		})
 	}
 	post (endpoint, bodyparam, queryparam = '') {
 		let ac = this._seekCredential()

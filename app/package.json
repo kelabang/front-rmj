@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "async": "^2.6.1",
+    "axios": "^0.18.0",
     "boundless": "^1.1.0",
     "buildo-react-components": "^0.33.0",
     "fetch-intercept": "^2.2.3",
+    "generic-pool": "^3.4.2",
     "get-urls": "^7.2.0",
     "history": "^4.7.2",
     "immutability-helper": "^2.6.6",
@@ -40,8 +43,7 @@
     "build": "REACT_APP_MODE=pro react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-
-	"serve": "REACT_APP_MODE=pro serve -s build"
+    "serve": "REACT_APP_MODE=pro serve -s build"
   },
   "devDependencies": {
     "eslint": "^4.19.0",

@@ -6,6 +6,7 @@ import listfeed from './component/listfeed/listfeed.reducer'
 import listfeedProfile from './component/listfeed/listfeedProfile.reducer'
 import composefeed from './component/composefeed/composefeed.reducer'
 import writereditor from './component/writereditor/writereditor.reducer'
+import progressbar from './component/progressbar/progressbar.reducer'
 
 export default combineReducers({
 	routing: routerReducer,
@@ -14,4 +15,5 @@ export default combineReducers({
 	listfeed,
 	listfeedProfile,
 	writereditor,
+	progressbar,
 })

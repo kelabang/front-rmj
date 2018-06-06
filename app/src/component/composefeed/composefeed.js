@@ -2,7 +2,7 @@
 * @Author: d4r
 * @Date:   2018-02-23 03:23:11
 * @Last Modified by:   Imam
-* @Last Modified time: 2018-05-11 02:38:40
+* @Last Modified time: 2018-06-05 22:49:03
 */
 
 import React, {Component} from 'react'
@@ -21,10 +21,16 @@ class ComposeFeed extends Component {
 		}
 		this.handleSubmit = (e) => {
 			e.preventDefault()
-			const {content} = this.refs
+			const {content, file} = this.refs
 			const {currentValue} = content
 			const {id} = this.props
-			this.props.postFeedAsync(currentValue, id)
+			console.log('::-- file upload ', file)
+			const {
+				files:[
+					datafile
+				]
+			} = file
+			this.props.postFeedAsync(currentValue, id, datafile)
 			this.refs.content.value = ''
 			this.setState({
 				build_key: rangeRandom(100, 999)
@@ -45,23 +51,34 @@ class ComposeFeed extends Component {
 							<img src="images/defpp.svg" />
 						</div>
 					</div>
-					<div className="pure-u-22-24">
-						<TextareaAutosize 
-							key={this.state.build_key}
-							ref="content" 
-							className="pure-u-21-24 pure-input-rounded" 
-							type="text" 
-							placeholder="have a word to say?"
-							maxRows={10}
-							onFocus={this.switchButton.bind(this, true)}
-							onBlur={this.switchButton.bind(this, false)}
-						/>
-						{
-							// this.state.show &&
-							(
-								<button type="submit" className="pure-u-2-24 compose pure-button pure-button-primary">tell</button>
-							)
-						}
+					<div className="pure-u-22-24" style={{position: 'relative'}}>
+						
+							<TextareaAutosize 
+								key={this.state.build_key}
+								ref="content" 
+								className="pure-u-21-24 pure-input-rounded" 
+								type="text" 
+								placeholder="have a word to say?"
+								maxRows={10}
+								onFocus={this.switchButton.bind(this, true)}
+								onBlur={this.switchButton.bind(this, false)}
+							/>
+							<div style={{
+								position: 'absolute',
+								top: 5,
+								right:85
+							}}>
+								{
+									(
+										<input id="video" type="file" name="file" ref="file"  />
+									)
+								}
+							</div>
+							{
+								(
+									<button type="submit" className="pure-u-2-24 compose pure-button pure-button-primary">tell</button>
+								)
+							}
 					</div>
 				 </form>
 			</div>

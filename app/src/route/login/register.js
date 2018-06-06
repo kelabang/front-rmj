@@ -2,7 +2,7 @@
 * @Author: d4r
 * @Date:   2018-02-20 01:18:39
 * @Last Modified by:   Imam
-* @Last Modified time: 2018-05-08 20:40:06
+* @Last Modified time: 2018-06-03 12:53:36
 */
 import React, {Component} from 'react'
 import {bindActionCreators} from 'redux'
@@ -36,10 +36,11 @@ class Register extends Component {
 			if(regreffbid.value) {
 				type = 1
 			}
-			this.props.registerAsync(regusername.value, regemail.value, regpassword.value, {
+			const options = {
 				ref_id: regreffbid.value,
 				ref_type: type
-			})
+			}
+			this.props.registerAsync(regusername.value, regemail.value, regpassword.value, options)
 		}
 		this.loginFacebook = (e) => {
 			console.log('login facebook')

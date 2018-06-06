@@ -2,7 +2,7 @@
 * @Author: d4r
 * @Date:   2018-02-20 01:18:39
 * @Last Modified by:   Imam
-* @Last Modified time: 2018-05-11 13:14:31
+* @Last Modified time: 2018-06-03 12:52:21
 */
 import React, {Component} from 'react'
 import {bindActionCreators} from 'redux'
@@ -39,7 +39,8 @@ class Login extends Component {
 		this.registerSubmit = (e) => {
 			e.preventDefault()
 			const {regusername, regemail, regpassword} = this.refs
-			this.props.registerAsync(regusername.value, regemail.value, regpassword.value)
+			const options = {}
+			this.props.registerAsync(regusername.value, regemail.value, regpassword.value, {})
 		}
 		this.loginFacebook = (e) => {
 			console.log('login facebook')
@@ -62,6 +63,7 @@ class Login extends Component {
 			                /*appId="182226439207649"*/
 			                appId={FACEBOOK_ID}
 			                autoLoad={false}
+			                isMobile={false}
 			                fields="name,email,picture"
 			                cssClass="pure-button login bgwhite rmj rmj-fb-button"
 			                onClick={this.loginFacebook}
