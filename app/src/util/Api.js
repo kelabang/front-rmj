@@ -2,7 +2,7 @@
 * @Author: d4r
 * @Date:   2018-02-20 22:37:11
 * @Last Modified by:   Imam
-* @Last Modified time: 2018-06-06 02:35:48
+* @Last Modified time: 2018-06-11 00:54:24
 */
 
 import unregister from './ApiFetch'
@@ -32,8 +32,10 @@ class Api {
 			return Storage.getSecurely('ac')
 		}
 		this._serialize = (obj, prefix) => {
+			console.log('test _serialize', obj)
 			var str = [], p
 			for(p in obj) {
+				console.log('p of loop ', p)
 				if (obj.hasOwnProperty(p)) {
 					var k = prefix ? prefix + '[' + p + ']' : p, v = obj[p]
 					str.push((v !== null && typeof v === 'object') ? 
@@ -56,7 +58,8 @@ class Api {
 		if(ac) ac = 'Bearer '+ac 
 		if(ac) options.headers['Authorization'] = ac
 		let url = this._url + endpoint
-		if(queryparam.length > 0) url = url + '?' + this._serialize(queryparam)
+		if(Object.keys(queryparam).length > 0) url = url + '?' + this._serialize(queryparam)
+		console.log('final url ', url)
 		return fetch(url, options)
 			.then(handleErrors)
 			.then(response => response.json())
@@ -65,9 +68,23 @@ class Api {
 		return axios.get(this._url)
 			.then(handleErrors)
 	}
+	putFile (endpoint, bodyparam, mime, length) {
+		console.log('using put file')
+		let url = endpoint
+		return axios.put(
+			url, 
+			bodyparam,
+			{
+				headers: {
+					'Content-Type': 'multipart/form-data'
+				}
+			}
+		)
+	}
 	postFile (endpoint, bodyparam) {
 		let url = endpoint
-		return axios.post(url, 
+		return axios.post(
+			url, 
 			bodyparam,
 			{
 				headers: {
@@ -93,6 +110,8 @@ class Api {
 			.then(response => response.json())
 	}
 	put (endpoint, bodyparam, queryparam) {
+		let ac = this._seekCredential()
+		if(ac) ac = 'Bearer '+ac 
 		let url = this._url + endpoint + this._serialize(queryparam)
 		let options = {
 			method: 'PUT',
@@ -102,6 +121,7 @@ class Api {
 				'content-type':'application/json'
 			}
 		}
+		if(ac) options.headers['Authorization'] = ac
 		return fetch(url, options)
 			.then(handleErrors)
 			.then(response => response.json())

@@ -2,7 +2,7 @@
 * @Author: d4r
 * @Date:   2018-02-23 00:38:24
 * @Last Modified by:   Imam
-* @Last Modified time: 2018-05-10 11:14:05
+* @Last Modified time: 2018-06-08 06:21:36
 */
 import React, {Component} from 'react'
 
@@ -30,6 +30,7 @@ class ListFeed extends Component {
 								id={feed.id}
 								created={feed.created}
 								comments={feed.comments}
+								vkey={feed.key}
 							/>
 					)
 				}

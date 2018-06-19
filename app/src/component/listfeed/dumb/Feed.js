@@ -2,11 +2,12 @@
 * @Author: Imam
 * @Date:   2018-04-22 20:39:03
 * @Last Modified by:   Imam
-* @Last Modified time: 2018-05-10 11:12:40
+* @Last Modified time: 2018-06-10 14:08:19
 */
 
 import React, {Component, Fragment} from 'react' 
 import moment from 'moment'
+import JWPlayer from 'react-jwplayer'
 
 class Feed extends Component {
 	constructor (props) {
@@ -68,10 +69,11 @@ class Feed extends Component {
 		)
 	}
 	render () {
-		const {user, content, id, created, parentid} = this.props
+		const {user, content, id, created, parentid, vkey: key} = this.props
 		const {username} = user
 		const humancreated = moment.utc(created).local().fromNow()
 		const cn = (this.props.parentid)? "item child":"item"
+		const playlist = []
 		return (
 			<Fragment>
 				<div key={id} className={cn}>
@@ -90,6 +92,9 @@ class Feed extends Component {
 							<p>
 								{content}
 							</p>
+							{key && <JWPlayer
+								videoId={key}
+							/>}
 							{this.props.children}
 						</div>
 					</div>

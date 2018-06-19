@@ -2,11 +2,10 @@
 * @Author: Imam
 * @Date:   2018-05-10 09:51:15
 * @Last Modified by:   Imam
-* @Last Modified time: 2018-05-11 02:28:39
+* @Last Modified time: 2018-06-17 13:30:44
 */
 
 import React, {Component} from 'react'
-import ComposeFeed from './../../composefeed/composefeed'
 
 function withTimelineAction (features) {
 	return WrappedComponent => {

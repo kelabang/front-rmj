@@ -2,10 +2,10 @@
 * @Author: d4r
 * @Date:   2018-02-23 03:23:11
 * @Last Modified by:   Imam
-* @Last Modified time: 2018-06-05 22:49:03
+* @Last Modified time: 2018-06-19 11:33:26
 */
 
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 import TextareaAutosize from 'react-autosize-textarea'
 
 import {rangeRandom} from './../../util/random'
@@ -21,16 +21,10 @@ class ComposeFeed extends Component {
 		}
 		this.handleSubmit = (e) => {
 			e.preventDefault()
-			const {content, file} = this.refs
+			const {content} = this.refs
 			const {currentValue} = content
 			const {id} = this.props
-			console.log('::-- file upload ', file)
-			const {
-				files:[
-					datafile
-				]
-			} = file
-			this.props.postFeedAsync(currentValue, id, datafile)
+			this.props.postFeedAsync(currentValue, id)
 			this.refs.content.value = ''
 			this.setState({
 				build_key: rangeRandom(100, 999)
@@ -41,6 +35,35 @@ class ComposeFeed extends Component {
 				show: value
 			})
 		}
+	}
+	renderExtraAction () {
+		console.log('renderExtraAction ', this.props)
+		if(!this.props.children) return null
+		return this.props.children
+		// return (
+		// 	(
+		// 		<Fragment>
+		// 			<label for="file-input">
+		// 			    <img 
+		// 			    	src="https://png.icons8.com/metro/1600/video-file.png" 
+		// 			    	style={{
+		// 			    		pointerEvents:"none",
+		// 			    		maxWidth: '20px',
+		// 			    		height: 'auto'
+		// 			    	}}/>
+		// 			</label>
+		// 			<input 
+		// 				id="video" 
+		// 				style={{
+		// 					display: 'none'
+		// 				}} 
+		// 				type="file" 
+		// 				name="file" 
+		// 				ref="file"  
+		// 			/>
+		// 		</Fragment>
+		// 	)
+		// )
 	}
 	render() {
 		return (
@@ -68,11 +91,7 @@ class ComposeFeed extends Component {
 								top: 5,
 								right:85
 							}}>
-								{
-									(
-										<input id="video" type="file" name="file" ref="file"  />
-									)
-								}
+								{this.renderExtraAction()}
 							</div>
 							{
 								(

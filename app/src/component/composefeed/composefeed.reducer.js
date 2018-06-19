@@ -2,7 +2,7 @@
 * @Author: d4r
 * @Date:   2018-02-23 02:50:50
 * @Last Modified by:   Imam
-* @Last Modified time: 2018-06-06 23:04:15
+* @Last Modified time: 2018-06-11 02:46:49
 */
 
 import update from 'immutability-helper'
@@ -68,17 +68,39 @@ function attachVideoToFeed(feedPromise, videoPromise) {
 			.then(([feed, video]) => {
 				console.log('feed:: ', feed)
 				console.log('video:: ', video)
-				
+				const {
+					data: {
+						id
+					}
+				} = feed
+				const {
+					data: {
+						file: {
+							md5,
+							size
+						},
+						media: {
+							key
+						}
+					}
+				} = video
+				return  api.put('/feed/'+id+'/video', {
+					md5,
+					size,
+					key,
+					source: 'jwp'
+				})
 			})
+			.then(payload => dispatch(getFeedAsync()))
 	}
 }
 
 function withDataFile (input, feedid, datafile) {
 	return (dispatch) => {
+		if(!datafile.tags) datafile.tags = 'books, review'
 		return upload.uploadVideo(datafile)
 			.then(({uploadPromise: videoPromise, progress_url}) => {
-				console.log('progress_url =-', progress_url)
-				dispatch(dataUploadProgress(progress_url))
+				if(progress_url) dispatch(dataUploadProgress(progress_url))
 				const postFeedPromise = api.post('/feed', {
 					type: 1,
 					content: input
@@ -120,6 +142,7 @@ const reducer = createReducer({
 	[failure]: (state,payload) => {
 		return update(state, {
 			is_fetching: {$set: false}
+			
 		})
 	},
 	[success]: (state,payload) => {
