@@ -33,12 +33,14 @@
     "react-router-redux": "^5.0.0-alpha.9",
     "react-scripts": "^1.1.1",
     "react-sidebar": "^2.3.2",
+    "react-string-replace": "^0.4.1",
     "react-toggled": "^1.2.6",
     "reactjs-popup": "^1.0.3",
     "redux": "^3.7.2",
     "redux-act": "^1.7.2",
     "redux-actions": "^2.2.1",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "remarkable": "^1.7.1"
   },
   "scripts": {
     "start": "REACT_APP_MODE=dev react-scripts start",
@@ -50,5 +52,7 @@
   "devDependencies": {
     "eslint": "^4.19.0",
     "eslint-plugin-react": "^7.7.0"
-  }
+  },
+  "main": "index.js",
+  "license": "MIT"
 }

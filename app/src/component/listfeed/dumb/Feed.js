@@ -2,13 +2,15 @@
 * @Author: Imam
 * @Date:   2018-04-22 20:39:03
 * @Last Modified by:   Imam
-* @Last Modified time: 2018-06-10 14:08:19
+* @Last Modified time: 2018-06-24 01:51:57
 */
 
 import React, {Component, Fragment} from 'react' 
 import moment from 'moment'
 import JWPlayer from 'react-jwplayer'
 
+import withMentionInContent from './../hoc/withMentionInContent'
+ 
 class Feed extends Component {
 	constructor (props) {
 		super(props)
@@ -53,23 +55,10 @@ class Feed extends Component {
 		return toRender.reverse()
 		
 	}
-	renderCommentBox () {
-		return (
-			<form className="pure-form pure-g" style={{marginTop:"10px", marginBottom: "5px"}}>
-				<div className="pure-u-2-24 reset-item">
-					<div className="image">
-						<img src="images/defpp.svg"/>
-					</div>
-				</div>
-				<div className="pure-u-22-24">
-					<textarea className="pure-u-21-24 pure-input-rounded" type="text" placeholder="have a word to say?" rows="1" style={{"maxHeight": "160px", overflow: "hidden", wordWrap: "break-word", "resize": "horizontal", "height": "32px"}}></textarea>
-					<button type="submit" className="pure-u-2-24 compose pure-button pure-button-primary">reply</button>
-				</div>
-			</form>
-		)
-	}
 	render () {
-		const {user, content, id, created, parentid, vkey: key} = this.props
+		const {user, id, created, parentid, vkey: key} = this.props
+		let {content} = this.props
+		content = this.props.renderContent(content)
 		const {username} = user
 		const humancreated = moment.utc(created).local().fromNow()
 		const cn = (this.props.parentid)? "item child":"item"
@@ -100,15 +89,28 @@ class Feed extends Component {
 					</div>
 				</div>
 				{
-					// this.state.toggle_comment && this.renderCommentBox()
-				}
-				
-				{
-					this.props.comments && this.renderComments()
+					this.props.comments && typeof this.props.renderComments == 'function' && this.props.renderComments(this.props)
 				}
 			</Fragment>
 		)
 	}
 }
 
-export default Feed
+Feed.defaultProps = {
+	renderContent: (content) => content,
+	renderComments: ({id:parentid, comments}) => {
+		let toRender = []
+		toRender = comments.map(comment => {
+			return (
+				<Feed
+					{...comment} 
+					key={comment.id}
+					parentid={parentid}
+				/>
+			)
+		})
+		return toRender.reverse()
+	}
+}
+
+export default withMentionInContent(Feed)

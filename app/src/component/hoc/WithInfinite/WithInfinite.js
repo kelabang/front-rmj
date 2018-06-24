@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2018-04-22 17:24:11
 * @Last Modified by:   Imam
-* @Last Modified time: 2018-05-09 01:50:16
+* @Last Modified time: 2018-06-23 21:14:35
 */
 import React, {Component} from 'react'
 const _throttle = require('lodash.throttle')
@@ -29,7 +29,7 @@ const withInfiniteScroll = (Component) =>
 		}
 
 		render() {
-		  return <Component {...this.props} />;
+			return <Component {...this.props} />
 		}
 	}
 

@@ -2,7 +2,7 @@
 * @Author: d4r
 * @Date:   2018-02-23 00:38:24
 * @Last Modified by:   Imam
-* @Last Modified time: 2018-06-08 06:21:36
+* @Last Modified time: 2018-06-23 23:03:42
 */
 import React, {Component} from 'react'
 
@@ -24,12 +24,8 @@ class ListFeed extends Component {
 					this.props.feeds.map(
 						feed =>
 							<Feed 
+								{...feed}
 								key={feed.id}
-								user={feed.user}
-								content={feed.content}
-								id={feed.id}
-								created={feed.created}
-								comments={feed.comments}
 								vkey={feed.key}
 							/>
 					)
