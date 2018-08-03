@@ -5,16 +5,19 @@ import { Route, Switch } from 'react-router-dom'
 import {isdo} from './util/index'
 import Login from './route/login/login'
 import Register from './route/login/register'
+import Book from './route/book/book'
 import Timeline from './route/timeline/timeline'
 import Profile from './route/profile/profile'
 import ProfileStory from './route/profile/story'
 import ProfileBook from './route/profile/book'
 import Write from './route/story/write'
+import Library from './route/library/library'
 import Error404 from './route/error/error404'
 
 import Progressbar from './component/progressbar/progressbar'
 
 import './app.css'
+import './readable.css'
 
 const {isLogin, doLogout} = isdo
 
@@ -40,8 +43,14 @@ const App = () => (
 			<Route exact path="/" render={() => {
 				return redir(Timeline)
 			}}/>
+			<Route exact path="/library" render={() => {
+				return redir(Library)
+			}}/>
 			<Route exact path="/register" render={() => {
 				return redir(Register, 1) 
+			}} />
+			<Route path="/book/:bookisbn/:bookslug?" render={() => {
+				return redir(Book)
 			}} />
 			<Route exact path="/profile-disabled" render={() => {
 				return redir(Profile)

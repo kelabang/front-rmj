@@ -1,8 +1,8 @@
 /*
 * @Author: d4r
 * @Date:   2018-03-02 10:53:32
-* @Last Modified by:   d4r
-* @Last Modified time: 2018-03-02 20:28:09
+* @Last Modified by:   Imam
+* @Last Modified time: 2018-06-27 21:03:54
 */
 import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
@@ -28,7 +28,6 @@ class Book extends Component {
 						    </ul>
 						</div>
 						<br/>
-
 					</article>
 					<nav className=""> </nav>
 					<aside className=""> </aside>

@@ -1,0 +1,102 @@
+/*
+* @Author: d4r
+* @Date:   2018-02-22 00:57:51
+* @Last Modified by:   Imam
+* @Last Modified time: 2018-06-24 20:55:36
+*/
+/*
+* @Author: d4r
+* @Date:   2018-02-18 01:50:26
+* @Last Modified by:   d4r
+* @Last Modified time: 2018-02-18 03:43:25
+*/
+/*holy grail*/
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i");
+body {
+
+  font: 14px Helvetica;
+      font-family: "Source Sans Pro", Helvetica, sans-serif;
+  background: #ddd;
+  color:#14171a;
+}
+
+#main {
+  min-height: 800px;
+  max-width: 1190px;
+  margin: 10px auto;
+  padding: 0px;
+  display: flex;
+  flex-flow: row;
+}
+ 
+#main > article {
+  flex: 3 1 60%;
+  order: 2;
+}
+  
+#main > nav {
+  flex: 1 6 20%;
+  order: 1;
+  }
+  
+  #main > aside {
+   flex: 1 6 20%;
+   order: 3;
+  }
+ 
+header, footer {
+   display: block;
+   min-height: 48px;
+}
+
+header,
+#main>article,
+#main>aside,
+#main>nav,
+footer {
+  margin: .1em;
+  padding: .2em;
+  border-radius: 3px;
+  /*border: 1px solid #e6ecf1;*/
+  background: white;
+}
+ 
+/* Too narrow to support three columns */
+@media all and (max-width: 640px) {
+   #main, #page {
+     flex-direction: column;
+   }
+
+   #main > article, #main > nav, #main > aside {
+     order: 0;
+   }
+  
+   #main > nav, #main > aside, header, footer {
+     min-height: 50px;
+     max-height: 50px;
+   }
+}
+
+/*holy grail end here*/
+
+/* feed */
+.bgrumaji {
+	background: #46b7e9;
+}
+.white {
+	color: #fff;
+}
+.hide {
+	display: none!important;
+}
+body {
+  background: #fff;
+  color: #343434;
+  font-family: arial, sans-serif;
+}
+body {
+  background: #fff;
+  color: #343434;
+  font-family: arial, sans-serif;
+}
+

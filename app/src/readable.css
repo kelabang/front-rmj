@@ -1,0 +1,51 @@
+/*
+* @Author: Imam
+* @Date:   2018-07-04 01:29:51
+* @Last Modified by:   Imam
+* @Last Modified time: 2018-07-04 02:31:28
+*/
+
+.center .image {
+	text-align: center;
+}
+
+div.container.read {
+	max-width: 32em;
+	padding-right: 14px;
+	padding-left: 14px;-
+	max-width:34em;
+	margin:auto;
+	padding:0 1em;
+}
+
+h1.read, h4.read {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    letter-spacing: .05em
+}
+
+h1.read.topless, h4.read.topless {
+	margin-top: 0;
+}
+
+p.read {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-font-smoothing: antialiased !important;
+  text-rendering: optimizelegibility !important;
+  letter-spacing: .03em;
+}
+
+h1 {
+  font-size: 2.747em;
+}
+h2 {
+  font-size: 0.874em;
+}
+h3 {
+  font-size:1.229em;
+}
+h5.skin {
+	font-size: 0.729em;
+}
