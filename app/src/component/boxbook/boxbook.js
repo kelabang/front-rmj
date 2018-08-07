@@ -84,7 +84,7 @@ const mapStateToProps = (state, ownProps) => {
 	}
 	const {
 		title,
-		description,
+		subtitle: description,
 		publisher: {
 			name: publisher_name
 		},
