@@ -7,13 +7,24 @@
 .pure-menu-heading {
 	margin-top:2px;
 }
+
 .round-image{
 	border-radius:100%; 
 	height: 100px; 
-	margin: 0 auto;
+	/* margin: 0 auto; */
 	width: 100px; 
 	overflow:hidden;
   /*transition: top .2s ease-in-out,width .5s,height .5s;*/
+}
+@media screen and (min-width: 48em) {
+	.round-image{
+		border-radius:100%; 
+		height: 100px; 
+		margin: 0 auto;
+		width: 100px; 
+		overflow:hidden;
+	/*transition: top .2s ease-in-out,width .5s,height .5s;*/
+	}
 }
 .head-list{
 	padding-top: 4px;

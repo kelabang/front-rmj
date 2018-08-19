@@ -18,5 +18,35 @@
 	text-align: center;
 	/*margin: .5em;*/
 	border-radius: 15px;
-	margin-left: 12px;
+
 }
+
+.image-compose {
+	display: none!important;
+}
+
+.compose.pure-button{
+	margin-top:0!important;
+	float: right!important;
+	min-width: 50px;
+}
+
+@media screen and (min-width: 48em) {
+	.image-compose {
+		display: inline-block!important;
+	}
+	.compose.pure-button{
+		margin-top:inherit!important;
+	}
+}
+
+@media screen and (min-width: 64em) {
+	.compose.pure-button{
+		margin-top:0!important;
+		float: none!important;
+		margin-left: 10px;
+		min-width: 50px;
+	}
+
+}
+

@@ -24,7 +24,7 @@ class Timeline extends Component {
 			<Fragment>
 				<MainHeader />
 				<div id='main' className="pure-g">
-					<article className="pure-u-1-3">
+					<article className="pure-u-1 pure-u-md-1-3">
 						<ComposeFeed />
 						<ListFeed />
 					</article>
