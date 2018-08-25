@@ -31,7 +31,7 @@ let commentFeature = (props) => {
 							comment
 						</a>
 						{
-							on && <ComposeFeed id={props.id} />
+							on && <ComposeFeed yescomment id={props.id} />
 						}
 					</Fragment>
 			}

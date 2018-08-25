@@ -26,9 +26,16 @@
 }
 
 .compose.pure-button{
-	margin-top:0!important;
 	float: right!important;
 	min-width: 50px;
+}
+
+.compose.pure-button.lesstop{
+	margin-top:0!important;
+}
+
+.compose.pure-button.commenttop{
+	margin-top:4px!important;
 }
 
 @media screen and (min-width: 48em) {

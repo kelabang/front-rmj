@@ -66,6 +66,7 @@ class ComposeFeed extends Component {
 		// )
 	}
 	render() {
+		const buttonCn = (this.props.yescomment) ? "pure-u-2-24 pure-u-md-2-24 pure-u-lg-1-24 compose pure-button pure-button-primary commenttop" : "pure-u-2-24 pure-u-md-2-24 pure-u-lg-1-24 compose pure-button pure-button-primary lesstop"
 		return (
 			<div className="compose">
 				<form onSubmit={this.handleSubmit} className="pure-form pure-g">
@@ -96,7 +97,7 @@ class ComposeFeed extends Component {
 							</div>
 							{
 								(
-								<button type="submit" className="pure-u-2-24 pure-u-md-2-24 pure-u-lg-1-24 compose pure-button pure-button-primary">tell</button>
+								<button type="submit" className={buttonCn}>tell</button>
 								)
 							}
 					</div>
