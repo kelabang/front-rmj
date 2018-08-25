@@ -78,7 +78,12 @@ class Login extends Component {
 			return output
 		}
 	}
-	
+	componentDidMount() {
+		document.body.classList.add("hi");
+	}
+	componentWillUnmount() {
+		document.body.className = document.body.className.replace("hi", "");
+	}
 	render () {
 		return (<div>
 		        <div className="header">
@@ -98,10 +103,10 @@ class Login extends Component {
 		              <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-2 ">
 		                <div className="abs">
 		                  <p className="splash-subhead rmj-sub">
-		                    Read and Share it. Join today.
+		                    Read and Share it. <a href="register" className="register join" >Join</a> today.
 		                  </p>
 		                </div>
-		                <form onSubmit={this.registerSubmit} className="pure-form pure-form-stacked rmj-register">
+		                <form onSubmit={this.registerSubmit} className="pure-form pure-form-stacked rmj-register hide">
 		                  <fieldset>
 		                    <input ref="regusername" type="text" placeholder="Username" />
 		                    <input ref="regemail" type="email" placeholder="Email" />

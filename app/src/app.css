@@ -44,6 +44,11 @@ https://github.com/yahoo/pure/blob/master/LICENSE.md
 body{
 	font-family: "Source Sans Pro";
 }
+
+body.hi {
+	background-image: url("/images/funky.png");
+}
+
 .not-active {
   pointer-events: none;
   cursor: default;

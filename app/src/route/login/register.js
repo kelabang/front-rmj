@@ -78,10 +78,14 @@ class Register extends Component {
 		}
 	}
 	componentDidMount () {
+		document.body.classList.add("hi");
 		if(this.props.form_email) {
 			this.refs.regemail.value = this.props.form_email 
 			this.refs.regreffbid.value = this.props.form_facebook_id 
 		}
+	}
+	componentWillUnmount() {
+		document.body.className = document.body.className.replace("hi", "");
 	}
 	componentDidUpdate (prevProps, prevState) {
 		if(prevProps.form_email !== this.props.form_email) {
@@ -108,7 +112,7 @@ class Register extends Component {
 		              <div className="">
 		                <div className="abs">
 		                  <p className="splash-subhead rmj-sub">
-		                  	Roses is red, Violets are blue.
+		                  	Create your account, and you're ready.
 		                  </p>
 		                </div>
 		                <form onSubmit={this.registerSubmit} className="pure-form pure-form-stacked rmj-register">
