@@ -11,7 +11,7 @@
     "generic-pool": "^3.4.2",
     "get-urls": "^7.2.0",
     "history": "^4.7.2",
-    "immutability-helper": "^2.6.6",
+    "immutability-helper": "^2.7.1",
     "js-base64": "^2.4.3",
     "jwt-decode": "^2.2.0",
     "lodash.throttle": "^4.1.1",

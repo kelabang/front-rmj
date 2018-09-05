@@ -8,6 +8,7 @@
 // import { createActions, handleActions, combineActions } from 'redux-actions'
 import { push } from 'react-router-redux'
 import {createAction, createReducer} from 'redux-act'
+import update from 'immutability-helper'
 import {Api, Storage} from './../../util'
 
 const api = new Api()
@@ -16,6 +17,7 @@ const defaultState = {
 	is_fetching: false,
 	form_email: '',
 	form_facebook_id: '',
+	logged_user: null,
 }
 
 // const {request, failure, success} = createActions({
@@ -24,11 +26,12 @@ const defaultState = {
 // 	LOAD_LOGIN_SUCCESS: () => ({status:false}),
 // })
 
-const [request, failure, success, preload_register_form] = [
+const [request, failure, success, preload_register_form, store_user_logged] = [
 	'LOAD_LOGIN_REQUEST',
 	'LOAD_LOGIN_FAILURE',
 	'LOAD_LOGIN_SUCCESS',
-	'PRELOAD_REGISTER_FORM'
+	'PRELOAD_REGISTER_FORM',
+	'STORE_USER_LOGGED'
 ].map(createAction);
 
 export function logout () {
@@ -43,6 +46,17 @@ export function registerFacebookAsync () {
 		dispatch(request({
 			loading: true
 		}))
+	}
+}
+
+export function getLoggedProfileAsync () {
+	return dispatch => {
+		api
+			.get('/me')
+			.then((payload) => {
+				const {data} = payload
+				dispatch(store_user_logged(data))
+			})
 	}
 }
 
@@ -73,6 +87,8 @@ export function loginFacebookAsync (response) {
 			}
 			const {token} = data
 			Storage.setSecurely('ac', token)
+
+			dispatch(getLoggedProfileAsync())
 			dispatch(push('/'))
 		})
 	}
@@ -92,6 +108,7 @@ export function loginAsync (username, password) {
 			const {data} = payload
 			const {token} = data
 			Storage.setSecurely('ac', token)
+			dispatch(getLoggedProfileAsync())
 			dispatch(push('/'))
 		})
 	}
@@ -153,6 +170,37 @@ const reducer = createReducer({
 			form_email: email,
 			form_facebook_id: form_facebook_id
 		}
+	},
+	[store_user_logged]: (state, payload) => {
+		console.log('logged reducer', payload)
+		console.log('logged reducer state', state)
+		let {
+			id,
+			created,
+			deleted,
+			email,
+			username,
+			firstname,
+			lastname,
+			status
+		} = payload
+
+		let user = {
+			id,
+			created,
+			deleted,
+			email,
+			username,
+			firstname,
+			lastname,
+			status
+		}
+		const toUpdate = {
+			logged_user: {$set: user}
+		}
+
+		return update(state, toUpdate)
+
 	}
 }, defaultState)
 

@@ -5,6 +5,7 @@
 * @Last Modified time: 2018-03-03 22:33:36
 */
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
 import Popup from "reactjs-popup"
 
 import { Link, NavLink } from 'react-router-dom'
@@ -13,6 +14,9 @@ import './mainheader.css'
 
 class MainHeader extends Component {
 	render () {
+		const {user} = this.props
+		let username = ''
+		if(user) username = user.username
 		return (
 			<header>
 				<div className="home-menu pure-menu pure-menu-horizontal pure-menu-fixed bgrumaji">
@@ -36,7 +40,7 @@ class MainHeader extends Component {
         	                    >
         	                        <ul className="pure-menu-list block center">
         	                        	<li className="pure-menu-item head-list bold">
-        	                        		Ma4m
+        	                        		{username}
         	                        	</li>
         	                            <li className="pure-menu-item head-list">
         	                            	<NavLink 
@@ -65,4 +69,19 @@ class MainHeader extends Component {
 	}
 }
 
-export default MainHeader
+MainHeader.defaultProps = {
+	user: null
+}
+
+const mapStateToProps = state => {
+	const {
+		login: {
+			logged_user: user
+		}
+	} = state
+	return {
+		user
+	}
+}
+
+export default connect(mapStateToProps)(MainHeader)

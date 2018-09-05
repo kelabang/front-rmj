@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-
+import store from './Store'
 import {isdo} from './util/index'
 import Login from './route/login/login'
 import Register from './route/login/register'
@@ -19,16 +19,24 @@ import Progressbar from './component/progressbar/progressbar'
 import './app.css'
 import './readable.css'
 
+import {
+	getLoggedProfileAsync
+} from './route/login/login.reducer'
+
 const {isLogin, doLogout} = isdo
+
+if(isLogin())
+	store.dispatch(getLoggedProfileAsync()) // load logged user profile
 
 const redirectIsLogin = function (Login) {
 	return function redir (Destination, options) {
+		const answer = isLogin()
 		if(options == 1) {
-			return isLogin()?
+			return answer?
 				<Timeline />:
 				<Destination />
 		}
-		return isLogin()?
+		return answer?
 			<Destination />:
 			<Login />
 	}
@@ -71,7 +79,5 @@ const App = () => (
 	
 	</Fragment>
 )
-
-
 
 export default App
