@@ -12,14 +12,23 @@ const withMentionInContent = (WrappedComponent) =>
 	class WithMentionInContent extends Component {
 		renderContent = () => {
 			let {
+				books,
 				mentions,
 				content
 			} = this.props
 			content = reactStringReplace(content, /(@\w+)/g, (match, i) => {
-				return <a href={`${match.replace('@', '')}`}>{match}</a>
+				if(!mentions) mentions = []
+				let is_user = mentions.findIndex(item => ('@'+item.username) == match)
+				if(is_user > -1)  
+					return <a href={`/${match.replace('@', '')}`}>{match}</a>
+				if (!books) books = []
+				let is_book = books.findIndex(item => (('@'+item.isbn) == match) || (('@'+item.isbn13) == match))
+				if(is_book > -1)
+					return <a href={`/book/${match.replace('@', '')}`}>{books[is_book].title}</a>
+				return match
 			})
 			content = reactStringReplace(content, /(#\w+)/g, (match, i) => {
-				return <a href={'channel/'+`${match.replace('#', '')}`}>{match}</a>
+				return <a href={'/channel/'+`${match.replace('#', '')}`}>{match}</a>
 			})
 			return content
 		}
