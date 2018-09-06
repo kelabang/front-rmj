@@ -105,7 +105,8 @@ export function loginAsync (username, password) {
 			grant_type: 'password',
 			client_id: '1'
 		}).then(payload => {
-			const {data} = payload
+			let {data} = payload
+			if(!data) data = {}
 			const {token} = data
 			Storage.setSecurely('ac', token)
 			dispatch(getLoggedProfileAsync())
@@ -172,8 +173,8 @@ const reducer = createReducer({
 		}
 	},
 	[store_user_logged]: (state, payload) => {
-		console.log('logged reducer', payload)
-		console.log('logged reducer state', state)
+		if(!payload) payload = {}
+
 		let {
 			id,
 			created,
