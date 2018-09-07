@@ -72,7 +72,7 @@ class ComposeFeed extends Component {
 				<form onSubmit={this.handleSubmit} className="pure-form pure-g">
 					<div className="image-compose pure-u-2-24 reset-item">
 						<div className="image">
-							<img src="images/defpp.svg" />
+							<img src="/images/defpp.svg" />
 						</div>
 					</div>
 					<div className="pure-u-md-22-24 pure-u-1" style={{position: 'relative'}}>

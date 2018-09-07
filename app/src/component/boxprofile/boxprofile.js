@@ -33,7 +33,7 @@ class BoxProfile extends Component {
 		            </div>
 		            
 		            <div className="avatarcontainer">
-		                <img src="images/defpp.svg" alt="avatar" className="avatar" />
+		                <img src="/images/defpp.svg" alt="avatar" className="avatar" />
 		                <div className="hover">
 		                        <div className="icon-twitter"></div>
 		                </div>

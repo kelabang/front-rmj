@@ -32,7 +32,7 @@ class MainHeader extends Component {
         	                    <Popup 
 	        	                    trigger={
 	        	                    	<a className="round-image">
-	        	                    		<img src="images/defpp.svg" alt="" />
+	        	                    		<img src="/images/defpp.svg" alt="" />
 	        	                    	</a>
 	        	                    }
 	        	                    position='bottom right'
