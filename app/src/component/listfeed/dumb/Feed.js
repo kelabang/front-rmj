@@ -67,7 +67,7 @@ class Feed extends Component {
 			<Fragment>
 				<div key={id} className={cn}>
 					<a className="round-image image">
-						<img src="images/defpp.svg" alt="" />
+						<img src="/images/defpp.svg" alt="" />
 					</a>
 					<div className="details">
 						<div>
