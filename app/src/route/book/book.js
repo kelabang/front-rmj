@@ -12,18 +12,22 @@ import MainHeader from './../../component/mainheader/mainheader'
 import BoxBook from './../../component/boxbook/boxbook'
 import ListFeed from './../../component/listfeed/listfeedBook'
 
+import './book.css'
+
 class Book extends Component {
 	render () {
 		return (
 			<Fragment>
 				<MainHeader />
-				<div id="main">
-					<article>
+				<div id="main" className="pure-g">
+					<article className="pure-u-1 pure-u-md-1-3">
 						<BoxBook />
 						<ListFeed />
 					</article>
-					<nav/>
-					<aside/>
+					<nav className="pure-u-1-3">
+					</nav>
+					<aside className="pure-u-1-3">
+					</aside>
 				</div>
 			</Fragment>
 		)

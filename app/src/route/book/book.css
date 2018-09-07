@@ -100,6 +100,10 @@ body {
   font-family: arial, sans-serif;
 }
 
+.boxbook h5{
+  letter-spacing: .25px!important;
+}
+
 .item {
   display: flex;
   /*max-width: 1000px;*/
@@ -109,9 +113,10 @@ body {
   border-bottom: 0.25px solid #e6ecf0;
   letter-spacing: -.25px!important;
 }
-.item .image {
+
+/* .item .image { */
   /*padding: 8px 1em;*/
-}
+/* } */
 .item .image, .reset-item .image {
   position: relative;
   text-align: center;
