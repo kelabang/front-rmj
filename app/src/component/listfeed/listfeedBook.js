@@ -15,7 +15,7 @@ import withInfiniteScroll from './../hoc/WithInfinite/WithInfinite'
 import {
 	getFeedAsync,
 	getFeedMoreAsync
-} from './listfeed.reducer'
+} from './listfeedBook.reducer'
 
 class ListfeedBook extends Component {
 	render() {
