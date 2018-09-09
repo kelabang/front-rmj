@@ -24,7 +24,6 @@ const [request, failure, success] = [
 ].map(createAction)
 
 function _cleanPathIsbn (path = '') {
-	console.log('path', path)
 	return path.replace('/book/', '')
 }
 
@@ -47,8 +46,13 @@ export function getFeedAsync (isbn) {
 			.get('/book/' +  isbn +'/feed')
 			.then(payload => {
 				const {data} = payload
+				let _feeds = []
+				if(data) {
+					let {feeds} = data.pop()
+					_feeds = feeds
+				}
 				dispatch(success({
-					feeds: data,
+					feeds: _feeds,
 					loading: false
 				}))
 			})
@@ -59,7 +63,7 @@ export function getFeedMoreAsync (isbn) {
 	return (dispatch, getState) => {
 
 		// get last feed id
-		const {listfeed: {feeds}} = getState()
+		const {listfeedBook: {feeds}} = getState()
 		const last = feeds[feeds.length-1]
 
 		dispatch(request({
@@ -79,11 +83,18 @@ export function getFeedMoreAsync (isbn) {
 		return api
 			.get('/book/'+isbn+'/feed?id='+last.id+'&mode=prev')
 			.then(payload => {
-				const {data} = payload
-				const {listfeed:{feeds}} = getState()
+				
+				const { data } = payload
+				let _feeds = []
+				if (data) {
+					let { feeds } = data.pop()
+					_feeds = feeds
+				}
+
+				const {listfeedBook:{feeds}} = getState()
 				const keys = feeds.map(i => i['id'])
 				dispatch(success({
-					feeds: data.filter(item => keys.indexOf(item.id) < 0),
+					feeds: _feeds.filter(item => keys.indexOf(item.id) < 0),
 					custom: 'add',
 					loading: false
 				}))
