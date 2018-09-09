@@ -32,8 +32,8 @@ class ListfeedBook extends Component {
 	}
 }
 
-const mapStateToProps = ({listfeed}) => {
-	const {feeds, is_fetching} = listfeed
+const mapStateToProps = ({listfeedBook}) => {
+	const {feeds, is_fetching} = listfeedBook
 	return {
 		feeds: feeds,
 		list: feeds,
