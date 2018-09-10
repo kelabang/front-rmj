@@ -9,7 +9,7 @@
 
 const dev = {
 	'API_URL': 'http://localhost:8080/v2',
-	'FACEBOOK_ID' : '399892760060943',
+	'FACEBOOK_ID': '170164430315450',
 	'GOOGLE_CLIENT_ID': '593015233814-avrgqsp99p1ai766giik45c2go0rne45.apps.googleusercontent.com',
 	'GOOGLE_CLIENT_SECRET': 'dakNE4yWjtN3HAt5Kndykg2f'
 }

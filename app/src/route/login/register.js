@@ -8,12 +8,19 @@ import React, {Component} from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import FacebookLogin from 'react-facebook-login'
+
+import config from './../../config'
+
 import {
 	loginAsync,
 	registerAsync,
 	loginFacebookAsync
 } from './login.reducer'
 import './login.css'
+
+const {
+	FACEBOOK_ID
+} = config
 
 class Register extends Component {
 	constructor (props) {
@@ -61,7 +68,7 @@ class Register extends Component {
 				case 0:
 					output = (<FacebookLogin
 			                /*appId="182226439207649"*/
-			                appId="399892760060943"
+											appId={FACEBOOK_ID}
 			                autoLoad={false}
 			                fields="name,email,picture"
 			                cssClass="pure-button login bgwhite rmj rmj-fb-button"
