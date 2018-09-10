@@ -46,7 +46,7 @@ class MainHeader extends Component {
         	                            	<NavLink 
         	                            		exact
         	                            		className="pure-menu-link black" 
-        	                            		to="profile" 
+        	                            		to="/profile" 
         	                            		activeClassName="bgblue"
         	                            	>Profile</NavLink>
         	                            </li>
@@ -54,7 +54,7 @@ class MainHeader extends Component {
         	                            	<NavLink 
         	                            		exact
         	                            		className="pure-menu-link black" 
-        	                            		to="logout" 
+        	                            		to="/logout" 
         	                            		activeClassName="bgblue"
         	                            	>Logout</NavLink>
         	                            </li>
