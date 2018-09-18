@@ -17,7 +17,7 @@ import ComposeFeed from './../composefeed/composefeedComment'
 let commentFeature = (props) => {
 	if(props.parentid) return null
 	return (
-		<Toggle>
+		<Toggle key={props.parentid}>
 			{
 				({on, getTogglerProps, setOn, setOff, toggle}) =>
 					<Fragment>

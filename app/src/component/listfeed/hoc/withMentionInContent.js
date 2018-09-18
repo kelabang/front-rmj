@@ -20,20 +20,21 @@ const withMentionInContent = (WrappedComponent) =>
 				if(!mentions) mentions = []
 				let is_user = mentions.findIndex(item => ('@'+item.username) == match)
 				if(is_user > -1)  
-					return <a href={`/${match.replace('@', '')}`}>{match}</a>
+					return <a key={i} href={`/${match.replace('@', '')}`}>{match}</a>
 				if (!books) books = []
 				let is_book = books.findIndex(item => (('@'+item.isbn) == match) || (('@'+item.isbn13) == match))
 				if(is_book > -1)
-					return <a href={`/book/${match.replace('@', '')}`}>{books[is_book].title}</a>
+					return <a key={i} href={`/book/${match.replace('@', '')}`}>{books[is_book].title}</a>
 				return match
 			})
 			content = reactStringReplace(content, /(#\w+)/g, (match, i) => {
-				return <a href={'/channel/'+`${match.replace('#', '')}`}>{match}</a>
+				return <a key={i} href={'/channel/'+`${match.replace('#', '')}`}>{match}</a>
 			})
 			return content
 		}
 		render() {
 			return <WrappedComponent 
+				key={this.props.id}
 				{...this.props}				
 				renderContent={this.renderContent} 
 			/>

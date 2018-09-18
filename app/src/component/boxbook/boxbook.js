@@ -85,15 +85,15 @@ const mapStateToProps = (state, ownProps) => {
 	const {
 		title,
 		subtitle: description,
-		publisher: {
-			name: publisher_name
-		},
+		publisher,
 		author: {
 			name: author_name
 		},
 		cover_url,
 		isbn
 	} = book
+	let publisher_name = ''
+	if(publisher) publisher_name = publisher.name
 	return {
 		id,
 		title,

@@ -41,7 +41,7 @@ class composeFeedTimeline extends Component {
 					name="file" 
 					ref="file"  
 				/>
-				<label onClick={(e) => this.refs.file.click()} for="file-input">
+				<label onClick={(e) => this.refs.file.click()} htmlFor="file-input">
 				    <img 
 				    	src="https://png.icons8.com/metro/1600/video-file.png" 
 				    	style={{

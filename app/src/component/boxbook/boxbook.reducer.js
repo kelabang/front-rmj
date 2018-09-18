@@ -82,7 +82,6 @@ export function getBookSingleAsyncByISBN (ISBN) {
 		return api
 			.get('/book?isbn='+ISBN)
 			.then(payload => {
-				console.log('breakpoint ', data)
 				if(isEmptyObject(payload)) return null
 				let {data: _data} = payload
 				if(_data.length < 1) return null
