@@ -16,10 +16,11 @@ function withTimelineAction (features) {
 			render() {
 				return (
 					<WrappedComponent
+						key={this.props.id}
 						{...this.props}
 					>
 						<p className ="action">
-							{features.map(feature => feature({...this.props}))}
+							{features.map((feature, i) => <span key={i}>{feature({...this.props})}</span>)}
 						</p>
 					</WrappedComponent>
 				)
